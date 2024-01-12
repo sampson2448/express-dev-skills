@@ -5,21 +5,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
+  <title></title>
 </head>
 <body>
-  <h1><%= title %></h1>
   <!-- Add this line -->
   <h1>Skills</h1>
-<ul>
-  <% skills.forEach(skill => { %>
-    <li>
-      <%= skill.language %> 
-      - 
-      <%= skill.obtained ? 'done' : 'not done' %>
-    </li>
-  <% }) %>
-</ul>
-  <a href="/todos">To-Do List</a>
+  <ul>
+    <%skills.forEach(skill=> { %>
+      <li>
+        <a href="/skills/<%= skill._id %>"><%= skill.language %></a>
+          - 
+        <%= skill.obtained ? 'obtained' : 'not obtained' %>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/skills/new">Skill List</a>
 </body>
 </html>
