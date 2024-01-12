@@ -5,14 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-</head>
+<!-- Add this line -->
+<link rel="stylesheet" href="/stylesheets/style.css">
+<title>Express To-Do</title></head>
 <body>
   <!-- Add this line -->
   <h1>Skills</h1>
+  <h1>Skills as of <%= time %></h1>
   <ul>
     <%skills.forEach(skill=> { %>
       <li>
+        <form
+        action="/skills/<%= skill._id %>?_method=DELETE"
+        class="delete-form"
+        method="POST"
+      >
+        <button type="submit">X</button>
+      </form>
         <a href="/skills/<%= skill._id %>"><%= skill.language %></a>
           - 
         <%= skill.obtained ? 'obtained' : 'not obtained' %>
